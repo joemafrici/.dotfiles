@@ -13,4 +13,5 @@ export CXXFLAGS="-g -Wall -O0"
 # config alias for dotfile management
 alias config='/usr/bin/git --git-dir=/home/joe/.cfg/ --work-tree=/home/joe'
 
+# default to vi mode
 fish_vi_key_bindings
