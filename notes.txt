@@ -11,7 +11,7 @@ Page Fault - CPU exception generated when software attempts to use invalid Virtu
       Do we terminate process if this occurs?
     The address is valid, but swapped out
 
-Page size 4KB 
+Page size 4KB
 Page is a unit of memory
 Page frame is a block of physical memory
 
@@ -42,13 +42,13 @@ processes
 Logical to Physical address mapping occurs at execution time
 
 When a process is going to be executed its pages are loaded into memory from
-disk. 
+disk.
 
 The CPU generates a logical address which is composed of a page number and page
 offset (and other stuff). The page number is used as an index into the page
 table.
 
-The page table is a collection of entries. Each entry contains the base 
+The page table is a collection of entries. Each entry contains the base
 address of the page frame that the entry maps to. The offset is the location in
 the frame being referenced
 
@@ -82,5 +82,22 @@ page table index 0 and see that it has 1 which means you go to page frame 1 in
 physical memory and that is where page zero in logical memory is stored. The
 offset rolls through and allows you to access the specific physical address
 within the page that you are looking for. 
+
+The operating system needs to be aware of the allocation details of physical
+memory:
+  Which frames are allocated
+  Which frames are availabe
+  Number of total frames
+
+Store this information in a system wide data structure called a frame table.
+Frame table will have one entry for each physical page frame.
+The entry will indicate whether the frame is free or allocated. If it is
+allocated which process it belongs to
+
+A pointer to the array of page tables will be stored in a register. A context
+switch involves just switching to the appropriate index into the array of page
+tables for that process
+
+An attempt to write to a read only page causes a trap to the operating system
 
 
