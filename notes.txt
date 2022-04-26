@@ -81,7 +81,7 @@ Logical memory is organized as pages. If you wanted logical page zero you go to
 page table index 0 and see that it has 1 which means you go to page frame 1 in
 physical memory and that is where page zero in logical memory is stored. The
 offset rolls through and allows you to access the specific physical address
-within the page that you are looking for.
+within the page that you are looking for. 
 
 The operating system needs to be aware of the allocation details of physical
 memory:
