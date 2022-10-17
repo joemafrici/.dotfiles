@@ -178,6 +178,10 @@ set guioptions-=L
 " With a map leader it's possible to do extra key combinations
 " i.e: <leader>w saves the current file
 let g:mapleader = ","
+
+" ============================= Rainbow Paren Improved ===================
+let g:rainbow_active = 1 "set to 0 if you want to enable it later
+" via :RainbowToggle
 " ============================= vim-which-key ============================
 " Setup WhichKey here for our leader.
 " TODO: figure out why the timeout doesn't work
