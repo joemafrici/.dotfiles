@@ -182,15 +182,7 @@ let g:mapleader = ","
 " ============================= Rainbow Paren Improved ===================
 let g:rainbow_active = 1 "set to 0 if you want to enable it later
 " via :RainbowToggle
-" ============================= vim-which-key ============================
-" Setup WhichKey here for our leader.
-" TODO: figure out why the timeout doesn't work
-nnoremap <silent> <leader> :<c-u>WhichKey ','<CR>
-call which_key#register(',', "g:which_key_map")
-" Define prefix dictionary
-let g:which_key_map =  {}
-nnoremap <leader>? :WhichKey ','<CR>
-let g:which_key_map['?'] = 'show help'
+
 
 " This trigger takes advantage of the fact that the quickfix window can be
 " easily distinguished by its file-type, qf. The wincmd J command is
@@ -229,11 +221,9 @@ command! Ball :call DeleteInactiveBufs()
 
 " Close quickfix easily
 nnoremap <leader>a :cclose<CR>
-let g:which_key_map.a = 'close quickfix'
 
 " Remove search highlight
 nnoremap <leader><space> :nohlsearch<CR>
-let g:which_key_map['<space>'] = 'remove search highlight'
 
 function! InsertDate()
   " Get the position of the cursor, if it is the start of the file we want
@@ -253,7 +243,6 @@ endfunction
 
 " Add a date timestamp between two new lines.
 nnoremap <leader>d :call InsertDate()<CR>
-let g:which_key_map.d = 'insert date'
 
 " Buffer prev/next
 nnoremap <C-x> :bnext<CR>
@@ -267,7 +256,6 @@ map <C-l> <C-W>l
 
 " Fast saving
 nmap <leader>w :w!<cr>
-let g:which_key_map.w = 'save'
 
 " Fresh vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -294,10 +282,6 @@ map q <Nop>
 " search will center on the line it's found in.
 nnoremap n nzzzv
 nnoremap N Nzzzv
-
-" Set the path to where the current file is.
-nnoremap <leader>. :lcd %:p:h<CR>
-let g:which_key_map['.'] = 'set path as current file'
 
 " When we open vim try and find the project root based on .git.
 function! FindGitRoot()
@@ -346,13 +330,6 @@ endfunction
 
 " Find the git directory root on open of vim.
 autocmd BufEnter * silent! FindGitRoot
-
-" Support for sessions, this needs to match the dashboard commands
-let g:which_key_map.s = { 'name' : '+session' }
-nmap <Leader>ss :<C-u>SessionSave<CR>
-let g:which_key_map.s.s = 'session save'
-nmap <Leader>sl :<C-u>SessionLoad<CR>
-let g:which_key_map.s.l = 'session load'
 
 " Do not show stupid q: window
 map q: :q
