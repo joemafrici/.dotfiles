@@ -1,3 +1,4 @@
+alias vi=nvim
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -82,6 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 PATH=$PATH:.
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
