@@ -14,7 +14,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Install dev tools
 sudo apt-get update
 sudo apt-get install build-essential
+sudo apt-get install stow
 
+mv ~/.zshrc .zshrc.old
+
+cd dotfiles
+stow */
+cd ~/
 # Launch zsh
 zsh
 # Install Neovim Prerequisites
@@ -23,6 +29,7 @@ sudo apt-get install ninja-build gettext cmake unzip curl
 cd ~/
 
 # Install Neovim
+echo "INSTALLING NEOVIM"
 git clone https://github.com/neovim/neovim
 cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
