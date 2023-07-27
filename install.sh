@@ -38,6 +38,17 @@ sudo make install
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
+# Instal Go
+# Define the download URL for the latest stable Go version for Linux AMD64
+DOWNLOAD_URL=$(curl -s https://golang.org/dl/ | grep -o -m 1 'https://dl.google.com/go/go[0-9.]*.linux-amd64.tar.gz')
+# Download and install Go
+wget "$DOWNLOAD_URL"
+sudo tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz
+rm go$VERSION.linux-amd64.tar.gz
+
+# Verify installation
+go version
+
 # Launch zsh
 zsh
 nvim
