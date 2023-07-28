@@ -2,6 +2,7 @@ require "deepwater.packer"	-- lua/deepwater/packer.lua
 require "deepwater.colors"
 require "deepwater.settings"	-- lua/deepwater/settings.lua
 require "deepwater.keymaps" 	-- lua/deepwater/remap.lua
+require "deepwater.commands"
 require "deepwater.cmp"
 require "deepwater.lsp"
 require "deepwater.telescope"
