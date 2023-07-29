@@ -79,12 +79,16 @@ local function lsp_keymaps(bufnr)
 		"<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>",
 		"<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn",
-	-- "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	-- will rename a variable/function in other files too
+	-- may need to :wa afterwards to save the other files
+	vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn",
+		"<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(bufnr, "n", "gr",
 		"<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	-- vim.api.nvim_buf_set_keymap(bufnr, "n",
-	-- "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+	-- code actions specific to server
+	-- go can auto import
+	vim.api.nvim_buf_set_keymap(bufnr, "n",
+		"<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 
 	-- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f",
 	-- "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
