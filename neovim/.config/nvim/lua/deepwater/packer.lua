@@ -36,11 +36,9 @@ packer.init {
 	},
 }
 
--- need to call lua ColorMyPencils()
--- after :PackerSync
 return packer.startup(function(use)
 	use 'wbthomason/packer.nvim'        -- packer manage packer	
-	-- colorschemes
+	-- Colorschemes
 	use({
 		"rebelot/kanagawa.nvim",
 		as = "kanagawa",
@@ -53,14 +51,12 @@ return packer.startup(function(use)
 
 	})
 
-	-- My plugins here
-	-- use 'foo1/bar1.nvim'
-	-- use 'foo2/bar2.nvim'
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.2',
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+
 	-- need some prerequisite for this to work
 	-- check repo
 	use "nvim-telescope/telescope-media-files.nvim"
@@ -109,28 +105,7 @@ return packer.startup(function(use)
 
     use "akinsho/toggleterm.nvim"
     use "folke/which-key.nvim"
-	--[[
-	use {
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v2.x',
-		requires = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{                                      -- Optional
-			'williamboman/mason.nvim',
-			run = function()
-				pcall(vim.cmd, 'MasonUpdate')
-			end,
-		},
-		{'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-		-- Autocompletion
-		{'hrsh7th/nvim-cmp'},     -- Required
-		{'hrsh7th/cmp-nvim-lsp'}, -- Required
-		{'L3MON4D3/LuaSnip'},     -- Required
-	}
-}
---]]
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

@@ -10,7 +10,6 @@ vim.opt.timeoutlen = 300
 -- global options
 o.ignorecase = true
 o.smartcase = true
-
 o.hlsearch = true
 o.incsearch = true
 

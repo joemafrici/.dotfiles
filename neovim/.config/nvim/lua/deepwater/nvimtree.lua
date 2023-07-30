@@ -18,7 +18,7 @@ require "deepwater.nvim-tree-on-attach"
 nvim_tree.setup {
     on_attach = on_attach,
     disable_netrw = true, hijack_netrw = true,
-	open_on_tab = false,
+    open_on_tab = false,
     hijack_cursor = false,
     update_cwd = true,
     hijack_directories = {
