@@ -86,6 +86,7 @@ PATH=$PATH:.
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+export PATH=$PATH:build/llvm-project/build/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
