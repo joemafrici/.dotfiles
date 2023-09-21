@@ -1,11 +1,11 @@
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
-    print("lspconfig not installed")
+    print("lspconfig had an error")
     return
 end
 local util_status_ok, util = pcall(require, "lspconfig/util")
 if not util_status_ok then
-    print("lspconfig/util not isntalled")
+    print("lspconfig/util had an error")
     return
 end
 
