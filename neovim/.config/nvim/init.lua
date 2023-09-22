@@ -143,6 +143,11 @@ require('lazy').setup({
   },
 
   {
+    "rebelot/kanagawa.nvim",
+    vim.cmd("colorscheme kanagawa-wave"),
+  },
+  --[[
+  {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
@@ -150,7 +155,7 @@ require('lazy').setup({
       vim.cmd.colorscheme 'onedark'
     end,
   },
-
+  --]]
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
@@ -228,11 +233,20 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
+-- Tabs
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+vim.wo.relativenumber = true
+
+-- Column
+vim.wo.colorcolumn = "80"
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -247,6 +261,9 @@ vim.o.breakindent = true
 
 -- Save undo history
 vim.o.undofile = true
+
+-- No Swap File
+vim.bo.swapfile = false
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
@@ -269,11 +286,31 @@ vim.o.termguicolors = true
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
+-- jk fast to leave insert mode
+vim.keymap.set("i", "jk", "<ESC>", { noremap = true, silent = true })
+
+-- leader key nop
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Better window navigation
+vim.keymap.set("n", "<C-h>", "<C-W>h", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-j>", "<C-W>j", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-k>", "<C-W>k", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-l>", "<C-W>l", { noremap = true, silent = true })
+
+-- Resize window
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { noremap = true, silent = true })
+
+-- Navigate buffers
+vim.keymap.set("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { noremap = true, silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
