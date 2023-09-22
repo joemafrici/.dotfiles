@@ -312,6 +312,11 @@ vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { noremap = true, si
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { noremap = true, silent = true })
 
+-- Move text
+-- https://vi.stackexchange.com/questions/2674/how-can-i-easily-move-a-line
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<A-k>", ":m .-2<CR>gv", { noremap = true, silent = true })
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
