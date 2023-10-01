@@ -9,6 +9,9 @@ sudo apt-get install stow
 # Install Neovim Prerequisites
 sudo apt-get install ninja-build gettext cmake unzip curl
 
+# Install ripgrep
+sudo apt-get install ripgrep
+
 # Install zsh
 #sudo apt install zsh
 #chsh -s $(which zsh)
@@ -21,14 +24,17 @@ sudo apt-get install ninja-build gettext cmake unzip curl
 
 # Stow
 #mv ~/.zshrc .zshrc.old
-cd dotfiles
-stow */
-cd ~/
-
+#cd dotfiles
+#stow */
+#cd ~/
+#install Make
+sudo apt install make
 
 # Install Neovim
 echo "INSTALLING NEOVIM"
 cd ~/
+mkdir build
+cd build
 git clone https://github.com/neovim/neovim
 cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
@@ -60,8 +66,8 @@ sudo tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz
 rm go$VERSION.linux-amd64.tar.gz
 
 # Set Go environment variables
-#echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
-#echo "export GOPATH=\$HOME/go" >> ~/.profile
+echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
+echo "export GOPATH=\$HOME/go" >> ~/.profile
 #source ~/.profile
 
 # Verify the installation
