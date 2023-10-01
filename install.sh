@@ -10,8 +10,17 @@ sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install stow
 
+# Install clang & lldb
+sudo apt-get install clang lldb
+
+# Fix lldb install thing
+# per: https://github.com/llvm/llvm-project/issues/55575#issuecomment-1247426995
+sudo apt install python3-lldb-14
+
+
 # Install Neovim Prerequisites
 sudo apt-get install ninja-build gettext cmake unzip curl
+sudo ln -s /usr/lib/llvm-14/lib/python3.10/dist-packages/lldb/* /usr/lib/python3/dist-packages/lldb/
 
 
 # Install Neovim
