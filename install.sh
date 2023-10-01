@@ -32,6 +32,10 @@ cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 cd ~/
 
+# Set Neovim as defult editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # Install Go
 # Define the download URL for the latest stable Go version for Linux AMD64
 
