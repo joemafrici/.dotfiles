@@ -1,6 +1,10 @@
 #!/bin/bash
 cd ~/
 
+# Fix time thing
+# see: https://askubuntu.com/questions/1096930/sudo-apt-update-error-release-file-is-not-yet-valid
+sudo hwclock --hctosys
+
 # Install dev tools
 sudo apt-get update
 sudo apt-get install build-essential
@@ -9,34 +13,15 @@ sudo apt-get install stow
 # Install Neovim Prerequisites
 sudo apt-get install ninja-build gettext cmake unzip curl
 
-# Install zsh
-#sudo apt install zsh
-#chsh -s $(which zsh)
-
-# Install oh-my-zsh
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-#git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-
-# Stow
-#mv ~/.zshrc .zshrc.old
-cd dotfiles
-stow */
-cd ~/
-
 
 # Install Neovim
 echo "INSTALLING NEOVIM"
-cd ~/
+mkdir build
+cd ~/build
 git clone https://github.com/neovim/neovim
 cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 cd ~/
-
-# Install Packer
-#git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-# ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # Install Go
 # Define the download URL for the latest stable Go version for Linux AMD64
@@ -67,30 +52,3 @@ rm go$VERSION.linux-amd64.tar.gz
 # Verify the installation
 go version
 
-
-# install clang
-# this takes a long time
-# should have an if check here with a flag option to determine
-# if I want to build clang at the time or not
-#cd ~/
-#mkdir build
-#cd build
-#git clone --depth=1 https://github.com/llvm/llvm-project.git
-#cd llvm-project
-
-#mkdir build
-#cd build
-
-# build llvm and clang in release mode
-#cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm
-
-#make
-
-# Launch zsh
-#zsh
-#nvim
-# Install Packer
-# might not need to do this 
-# see: https://github.com/wbthomason/packer.nvim#bootstrapping
-#git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-# ~/.local/share/nvim/site/pack/packer/start/packer.nvim
