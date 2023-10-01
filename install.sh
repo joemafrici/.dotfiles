@@ -3,7 +3,7 @@ cd ~/
 
 # Fix time thing
 # see: https://askubuntu.com/questions/1096930/sudo-apt-update-error-release-file-is-not-yet-valid
-sudo hwclock --hctosys
+#sudo hwclock --hctosys
 
 # Install dev tools
 sudo apt-get update
@@ -45,10 +45,22 @@ sudo tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz
 rm go$VERSION.linux-amd64.tar.gz
 
 # Set Go environment variables
-#echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
-#echo "export GOPATH=\$HOME/go" >> ~/.profile
-#source ~/.profile
+echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.profile
+echo "export GOPATH=\$HOME/go" >> ~/.profile
+source ~/.profile
 
 # Verify the installation
 go version
 
+# Install NPM
+cd ~/
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+
+sudo apt-get update
+sudo apt-get install nodejs -y
