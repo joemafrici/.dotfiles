@@ -140,11 +140,12 @@ require('lazy').setup({
       end,
     },
   },
-
+--[[
   {
     "rebelot/kanagawa.nvim",
     vim.cmd("colorscheme kanagawa-wave"),
   },
+  --]]
   --[[
   {
     -- Theme inspired by Atom
@@ -169,14 +170,10 @@ require('lazy').setup({
     },
   },
   {
-    -- Add indentation guides even on blank lines
+  -- Add indentation guides even on blank lines
+  -- See `:help indent_blankline.txt`
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    main = "ibl", opts = {}
   },
 
   -- "gc" to comment visual regions/lines
@@ -497,6 +494,7 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
+  bashls = { filetypes = { 'sh' } },
   html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
