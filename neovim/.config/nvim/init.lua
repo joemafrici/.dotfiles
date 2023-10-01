@@ -140,12 +140,14 @@ require('lazy').setup({
       end,
     },
   },
---[[
   {
     "rebelot/kanagawa.nvim",
-    vim.cmd("colorscheme kanagawa-wave"),
+    config = function()
+      vim.cmd.colorscheme 'kanagawa'
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    end,
   },
-  --]]
   --[[
   {
     -- Theme inspired by Atom
@@ -340,6 +342,8 @@ require('telescope').setup {
     },
   },
 }
+
+--require('kanagawa').setup{ transparent = true, }
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
