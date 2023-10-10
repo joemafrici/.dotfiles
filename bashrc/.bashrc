@@ -5,6 +5,7 @@
 
 alias vi='nvim'
 
+export PATH=$PATH:/usr/local/go/bin
 
 # If not running interactively, don't do anything
 case $- in

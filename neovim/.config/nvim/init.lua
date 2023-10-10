@@ -495,7 +495,8 @@ end
 --  define the property 'filetypes' to the map in question.
 local servers = {
   clangd = {},
-  -- gopls = {},
+  gopls = {},
+  golangci_lint_ls  = {},
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
