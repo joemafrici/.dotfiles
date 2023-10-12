@@ -457,6 +457,7 @@ local servers = {
   -- tsserver = {},
   bashls = { filetypes = { 'sh' } },
   html = { filetypes = { 'html', 'twig', 'hbs' } },
+  cssls = { filetypes = { 'css' } },
 
   lua_ls = {
     Lua = {
