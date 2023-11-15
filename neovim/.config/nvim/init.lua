@@ -454,10 +454,12 @@ local servers = {
   golangci_lint_ls  = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
+  eslint = {},
   bashls = { filetypes = { 'sh' } },
   html = { filetypes = { 'html', 'twig', 'hbs' } },
-  cssls = { filetypes = { 'css' } },
+  cssls = { },
+  -- biome = { },
 
   lua_ls = {
     Lua = {
@@ -570,6 +572,14 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
+  end,
+})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.js", "*.ts" },
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
     vim.opt_local.expandtab = true
   end,
 })
