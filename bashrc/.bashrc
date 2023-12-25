@@ -7,6 +7,10 @@ alias vi='nvim'
 
 export PATH=$PATH:/usr/local/go/bin
 
+duckit() {
+    w3m https://lite.duckduckgo.com/lite/?q="$@"
+}
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
