@@ -79,8 +79,6 @@ sudo apt-get update
 sudo apt-get install nodejs -y
 
 cd ~/
-echo GENERATING SSH KEY
-ssh-keygen -b 2048 -t rsa
 
 # Install Docker
 # Add Docker's official GPG key:
