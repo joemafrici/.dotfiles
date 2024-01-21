@@ -6,10 +6,13 @@
 alias vi='nvim'
 
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/joe/go/bin
 
 duckit() {
     w3m https://lite.duckduckgo.com/lite/?q="$@"
 }
+
+[ -f ~/.env_secrets ] && source ~/.env_secrets
 
 # If not running interactively, don't do anything
 case $- in
