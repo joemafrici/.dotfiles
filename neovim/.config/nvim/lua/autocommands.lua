@@ -12,6 +12,25 @@ function M.setup()
 			vim.highlight.on_yank()
 		end,
 	})
+
+	-- Set indent for Lua files
+	vim.api.nvim_create_autocmd("FileType", {
+		desc = "Indent 2 spaces for Lua files",
+		pattern = "lua",
+		callback = function()
+			vim.opt_local.shiftwidth = 2
+			vim.opt_local.tabstop = 2
+		end,
+	})
+	-- Set indent for Go files
+	vim.api.nvim_create_autocmd("FileType", {
+		desc = "Indent 8 spaces for Go files",
+		pattern = "go",
+		callback = function()
+			vim.opt_local.shiftwidth = 8
+			vim.opt_local.tabstop = 8
+		end,
+	})
 end
 
 return M
