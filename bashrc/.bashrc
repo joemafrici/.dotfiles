@@ -9,6 +9,12 @@ export PATH=/Users/deepwater/.dotfiles/lynx:$PATH
 export PATH=/Users/deepwater/.dotfiles/scripts:$PATH
 export PATH=/Users/deepwater/build/neovim/build/bin:$PATH
 
+# stuff installed with go install
+export PATH=/Users/deepwater/go/bin:$PATH
+
+# rust
+export PATH=/Users/deepwater/.cargo/bin:$PATH
+
 export SHELL=/opt/homebrew/bin/bash
 
 export PS1='\[\e[36m\]\u \[\e[32m\]\w\[\e[0m\]\$ '
@@ -19,3 +25,5 @@ alias lynx='/Users/deepwater/.config/lynx/lynx'
 alias '?'=duck
 alias loki=loki.sh
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
+alias python="python3"
+alias pip="pip3"

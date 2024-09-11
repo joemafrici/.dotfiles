@@ -22,13 +22,13 @@ function M.setup()
 	vim.opt.relativenumber = true
 
 	-- Column
-	vim.wo.colorcolumn = "100"
+	vim.wo.colorcolumn = "80"
 
 	vim.opt.softtabstop = 4
 	vim.opt.shiftwidth = 4
 
 	-- Enable mouse mode, can be useful for resizing splits for example!
-	vim.opt.mouse = "a"
+	-- vim.opt.mouse = "a"
 
 	-- Don't show the mode, since it's already in the status line
 	vim.opt.showmode = false
@@ -37,6 +37,9 @@ function M.setup()
 	--  Remove this option if you want your OS clipboard to remain independent.
 	--  See `:help 'clipboard'`
 	vim.opt.clipboard = "unnamedplus"
+
+	-- live by the :w ... die by the :w
+	vim.opt.swapfile = false
 
 	-- Enable break indent
 	vim.opt.breakindent = true

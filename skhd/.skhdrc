@@ -147,15 +147,27 @@
 
 # open terminal, blazingly fast compared to iTerm/Hyper
 # cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd - 0 : open -na 'google chrome'
+
+esc - cmd : yabai -m space --focus next --monitor "Primary"
+esc - tab : yabai -m space --focus prev --monitor "Primary"
+
+ctrl + alt - right: yabai -m window --swap east
+ctrl + alt - left : yabai -m window --swap west
 
 fn - k : yabai -m window --focus north
 fn - j : yabai -m window --focus south
 fn - l : yabai -m window --focus east
 fn - h : yabai -m window --focus west
-fn - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
-fn - p : yabai -m window --space prev
-fn - n : yabai -m window --space next
+fn - p : yabai -m space --focus prev --monitor "Primary"
+fn - n : yabai -m space --focus next --monitor "Primary"
+
+#fn - p : yabai -m window --space prev --monitor "Primary"
+#fn - p : yabai -m window --space prev
+#fn - n : yabai -m window --space next --monitor "Primary"
+#fn - n : yabai -m window --space next
 
 fn - 1 : yabai -m window --space 1
 fn - 2 : yabai -m window --space 2

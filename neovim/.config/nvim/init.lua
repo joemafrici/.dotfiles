@@ -4,6 +4,7 @@ require("autocommands").setup()
 
 local enable_which_key = false
 
+Enable_autocomplete = true
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -33,7 +34,7 @@ require("lazy").setup({
 			require("colors.monochrome")
 		end,
 	},
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+	-- "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following
@@ -45,7 +46,7 @@ require("lazy").setup({
 	--    require('Comment').setup({})
 
 	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim", opts = {} },
+	--{ "numToStr/Comment.nvim", opts = {} },
 
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -123,7 +124,7 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 
 			-- Useful for getting pretty icons, but requires a Nerd Font.
-			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+			--{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -207,27 +208,6 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- LSP Configuration & Plugins
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			-- Automatically install LSPs and related tools to stdpath for Neovim
-			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
-			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-			-- Useful status updates for LSP.
-			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-			{ "j-hui/fidget.nvim", opts = {} },
-
-			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-			-- used for completion, annotations and signatures of Neovim apis
-			{ "folke/neodev.nvim", opts = {} },
-		},
-		config = function()
-			require("plugins.lsp")
-		end,
-	},
-
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		lazy = false,
@@ -267,10 +247,10 @@ require("lazy").setup({
 
 	{ -- Autocompletion
 		(function()
-			if enable_autocomplete then
+			if Enable_autocomplete then
 				return {
 					"hrsh7th/nvim-cmp",
-					event = "InsertEnter",
+					--event = "InsertEnter",
 					dependencies = {
 						-- Snippet Engine & its associated nvim-cmp source
 						{
@@ -311,11 +291,27 @@ require("lazy").setup({
 			end
 		end)(),
 	},
-	{
-		"tjdevries/colorbuddy.nvim",
-		lazy = false,
-	},
 
+	{ -- LSP Configuration & Plugins
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			-- Automatically install LSPs and related tools to stdpath for Neovim
+			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+
+			-- Useful status updates for LSP.
+			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+			{ "j-hui/fidget.nvim", opts = {} },
+
+			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+			-- used for completion, annotations and signatures of Neovim apis
+			{ "folke/neodev.nvim", opts = {} },
+		},
+		config = function()
+			require("plugins.lsp")
+		end,
+	},
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
@@ -324,48 +320,48 @@ require("lazy").setup({
 		opts = { signs = false },
 	},
 
-	{ -- Collection of various small independent plugins/modules
-		"echasnovski/mini.nvim",
-		config = function()
-			-- Better Around/Inside textobjects
-			--
-			-- Examples:
-			--  - va)  - [V]isually select [A]round [)]paren
-			--  - yinq - [Y]ank [I]nside [N]ext [']quote
-			--  - ci'  - [C]hange [I]nside [']quote
-			require("mini.ai").setup({ n_lines = 500 })
+	--{ -- Collection of various small independent plugins/modules
+	--	"echasnovski/mini.nvim",
+	--	config = function()
+	--		-- Better Around/Inside textobjects
+	--		--
+	--		-- Examples:
+	--		--  - va)  - [V]isually select [A]round [)]paren
+	--		--  - yinq - [Y]ank [I]nside [N]ext [']quote
+	--		--  - ci'  - [C]hange [I]nside [']quote
+	--		require("mini.ai").setup({ n_lines = 500 })
 
-			-- Add/delete/replace surroundings (brackets, quotes, etc.)
-			--
-			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-			-- - sd'   - [S]urround [D]elete [']quotes
-			-- - sr)'  - [S]urround [R]eplace [)] [']
-			require("mini.surround").setup()
+	--		-- Add/delete/replace surroundings (brackets, quotes, etc.)
+	--		--
+	--		-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+	--		-- - sd'   - [S]urround [D]elete [']quotes
+	--		-- - sr)'  - [S]urround [R]eplace [)] [']
+	--		require("mini.surround").setup()
 
-			-- Simple and easy statusline.
-			--  You could remove this setup call if you don't like it,
-			--  and try some other statusline plugin
-			local statusline = require("mini.statusline")
-			-- set use_icons to true if you have a Nerd Font
-			statusline.setup({ use_icons = vim.g.have_nerd_font })
+	--		-- Simple and easy statusline.
+	--		--  You could remove this setup call if you don't like it,
+	--		--  and try some other statusline plugin
+	--		local statusline = require("mini.statusline")
+	--		-- set use_icons to true if you have a Nerd Font
+	--		statusline.setup({ use_icons = vim.g.have_nerd_font })
 
-			-- You can configure sections in the statusline by overriding their
-			-- default behavior. For example, here we set the section for
-			-- cursor location to LINE:COLUMN
-			---@diagnostic disable-next-line: duplicate-set-field
-			statusline.section_location = function()
-				return "%2l:%-2v"
-			end
+	--		-- You can configure sections in the statusline by overriding their
+	--		-- default behavior. For example, here we set the section for
+	--		-- cursor location to LINE:COLUMN
+	--		---@diagnostic disable-next-line: duplicate-set-field
+	--		statusline.section_location = function()
+	--			return "%2l:%-2v"
+	--		end
 
-			-- ... and there is more!
-			--  Check out: https://github.com/echasnovski/mini.nvim
-		end,
-	},
+	--		-- ... and there is more!
+	--		--  Check out: https://github.com/echasnovski/mini.nvim
+	--	end,
+	--},
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+			ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc", "rust", "go" },
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
@@ -393,22 +389,6 @@ require("lazy").setup({
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
-
-	-- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
-	-- init.lua. If you want these files, they are in the repository, so you can just download them and
-	-- place them in the correct locations.
-
-	-- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-	--
-	--  Here are some example plugins that I've included in the Kickstart repository.
-	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
-	--
-	-- require 'kickstart.plugins.debug',
-	-- require 'kickstart.plugins.indent_line',
-	-- require 'kickstart.plugins.lint',
-	-- require 'kickstart.plugins.autopairs',
-	-- require 'kickstart.plugins.neo-tree',
-	-- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 	--    This is the easiest way to modularize your config.

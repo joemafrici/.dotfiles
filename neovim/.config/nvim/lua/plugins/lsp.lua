@@ -24,7 +24,7 @@
 -- and elegantly composed help section, `:help lsp-vs-treesitter`
 
 -- WARN: true doesn't work...
-local enable_autocomplete = false
+--Enable_autocomplete = true
 
 --  This function gets run when an LSP attaches to a particular buffer.
 --    That is to say, every time a new file is opened that is associated with
@@ -129,7 +129,7 @@ vim.api.nvim_create_autocmd("LspDetach", {
 --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
 --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-if enable_autocomplete then
+if Enable_autocomplete then
 	capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 end
 
@@ -146,7 +146,7 @@ local servers = {
 	clangd = {},
 	gopls = {},
 	-- pyright = {},
-	-- rust_analyzer = {},
+	rust_analyzer = {},
 	-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 	--
 	-- Some languages (like typescript) have entire language plugins that can be useful:
