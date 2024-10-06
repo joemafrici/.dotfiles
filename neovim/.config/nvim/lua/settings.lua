@@ -81,6 +81,8 @@ function M.setup()
 	vim.opt.scrolloff = 10
 
 	vim.opt.autoread = true
+
+	vim.o.termguicolors = true
 end
 
 return M

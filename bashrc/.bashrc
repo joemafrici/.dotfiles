@@ -1,19 +1,34 @@
-# system default
+# System default
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 
-# homebrew
+# Homebrew
 export PATH=/opt/homebrew/bin:$PATH
 
 # my stuff
-export PATH=/Users/deepwater/.dotfiles/lynx:$PATH
-export PATH=/Users/deepwater/.dotfiles/scripts:$PATH
-export PATH=/Users/deepwater/build/neovim/build/bin:$PATH
+export PATH=$HOME/.dotfiles/lynx:$PATH
+export PATH=$HOME/.dotfiles/scripts:$PATH
+export PATH=$HOME/build/neovim/build/bin:$PATH
 
-# stuff installed with go install
-export PATH=/Users/deepwater/go/bin:$PATH
+# Go binaries
+export PATH=$HOME/go/bin:$PATH
 
-# rust
-export PATH=/Users/deepwater/.cargo/bin:$PATH
+# Rust
+export PATH=$HOME/.cargo/bin:$PATH
+
+# Ruby
+export PATH=/opt/homebrew/Cellar/ruby/3.3.5/bin:$PATH
+export PATH=/usr/local/opt/ruby/bin:$PATH
+# By default, binaries installed by gem will be placed into:
+export PATH=/opt/homebrew/lib/ruby/gems/3.3.0/bin:$PATH
+
+# For compilers to find ruby you may need to set:
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+
+# For pkg-config to find ruby you may need to set:
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
+
+export PATH=$HOME/.local/bin:$PATH
 
 export SHELL=/opt/homebrew/bin/bash
 
