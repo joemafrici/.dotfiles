@@ -52,7 +52,7 @@ Group.new("Todo", colors.black, colors.gray)
 -- gray
 Group.new("Special", colors.gray, colors.background)
 Group.new("LineNr", colors.gray, colors.background)
-Group.new("Statement", colors.dark_gray, colors.background)
+-- Group.new("Statement", colors.dark_gray, colors.background)
 Group.new("Module", colors.dark_gray, colors.background)
 Group.new("PreProc", colors.light_gray, colors.background)
 Group.new("Type", colors.light_gray, colors.background)
