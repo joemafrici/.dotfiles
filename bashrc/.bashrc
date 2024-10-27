@@ -34,6 +34,9 @@ export SHELL=/opt/homebrew/bin/bash
 
 export PS1='\[\e[36m\]\u \[\e[32m\]\w\[\e[0m\]\$ '
 
+
+eval "$(fzf --bash)"
+
 alias ls='ls --color=auto'
 alias path='~/.dotfiles/path.sh'
 alias lynx='/Users/deepwater/.config/lynx/lynx'

@@ -1,4 +1,4 @@
-shell = "/opt/homebrew/bin/bash"
+shell = "/bin/zsh"
 
 [env]
 TERM = "xterm-256color"
@@ -14,7 +14,7 @@ startup_mode = "Maximized"
 
 [font]
 normal.family = "Hack Nerd Font Mono"
-size = 24
+size = 22
 
 [colors.primary]
 #cursor.cursor = "#40BDFF"

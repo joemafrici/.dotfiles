@@ -27,6 +27,50 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+	--{
+	--	"nyoom-engineering/oxocarbon.nvim",
+	--	lazy = false,
+	--	priority = 1000,
+	--	config = function()
+	--		vim.cmd.colorscheme("oxocarbon")
+	--	end,
+	--},
+	--{
+	--	"AlexvZyl/nordic.nvim",
+	--	lazy = false,
+	--	priority = 1000,
+	--	config = function()
+	--		require("nordic").load()
+	--	end,
+	--},
+	--{
+	--	"Tsuzat/NeoSolarized.nvim",
+	--	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	--	priority = 1000, -- make sure to load this before all the other start plugins
+	--	config = function()
+	--		vim.cmd([[ colorscheme NeoSolarized ]])
+	--	end,
+	--},
+	---- Lazy
+	--{
+	--	"vague2k/vague.nvim",
+	--	lazy = false,
+	--	priority = 1000,
+	--	config = function()
+	--		require("vague").setup({
+	--			-- optional configuration here
+	--		})
+	--		vim.cmd.colorscheme("vague")
+	--	end,
+	--},
+	--{
+	--	"rebelot/kanagawa.nvim",
+	--	lazy = false,
+	--	priority = 1000,
+	--	config = function()
+	--		vim.cmd.colorscheme("kanagawa-dragon")
+	--	end,
+	--},
 	{
 		"tjdevries/colorbuddy.nvim",
 		lazy = false,
@@ -34,6 +78,7 @@ require("lazy").setup({
 			require("colors.monochrome")
 		end,
 	},
+	"tpope/vim-rails",
 	-- "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following

@@ -24,9 +24,10 @@ Color.new("white", "#cccccc")
 Color.new("red", "#FF405C")
 Color.new("pink", "#e63e62")
 Color.new("green", "#93C37C")
-Color.new("blue", "#40BDFF")
+--Color.new("blue", "#40BDFF")
 Color.new("brown", "#dea661")
-
+Color.new("blue", "#77b5fe")
+Color.new("comment", "#9292ec")
 -- white
 Group.new("Normal", colors.white, colors.background)
 Group.new("Constant", colors.white, colors.background) -- Use special color for literals
@@ -71,7 +72,7 @@ Group.new("Cursor", colors.blue, colors.background)
 Group.new("CursorIM", colors.blue, colors.background)
 Group.new("CursorLineNr", colors.blue, colors.background)
 
-Group.new("Comment", colors.pink, colors.background, styles.italic)
+Group.new("Comment", colors.comment, colors.background, styles.italic)
 
 -- diagnostics
 Group.new("Diagnostic", nil, colors.background)
@@ -83,3 +84,10 @@ Group.new("DiagnosticOk", nil, colors.background)
 Group.new("NormalFloat", nil, colors.background)
 
 Group.new("CursorLine", nil, nil)
+
+vim.cmd([[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]])

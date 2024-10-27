@@ -44,4 +44,7 @@ yabai -m config                                 \
     mouse_drop_action            swap
 
 yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Alacritty$" space=^1
+yabai -m rule --add app="^RubyMine$" space=3
+yabai -m rule --add app="^Firefox Developer Edition$" space=2
 echo "yabai configuration loaded.."
