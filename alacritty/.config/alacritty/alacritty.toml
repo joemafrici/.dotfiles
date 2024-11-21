@@ -14,7 +14,7 @@ startup_mode = "Maximized"
 
 [font]
 normal.family = "Hack Nerd Font Mono"
-size = 22
+size = 24
 
 [colors.primary]
 #cursor.cursor = "#40BDFF"
@@ -71,3 +71,8 @@ chars = "\u0002\u0038"  # Ctrl-b 8
 key = "9"
 mods = "Command"
 chars = "\u0002\u0039"  # Ctrl-b 9
+
+[[keyboard.bindings]]
+key = "0"
+mods = "Command"
+chars = "\u0002\u0040"  # Ctrl-b 9
