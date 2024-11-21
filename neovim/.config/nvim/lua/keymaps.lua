@@ -2,6 +2,8 @@
 --  See `:help vim.keymap.set()`
 local M = {}
 function M.setup()
+	-- Open Netrw
+	vim.keymap.set("n", "<leader>fe", ":Explore<CR>", { noremap = true, silent = true })
 	-- Navigate buffers
 	vim.keymap.set("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true })
 	vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { noremap = true, silent = true })
