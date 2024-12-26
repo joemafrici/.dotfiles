@@ -1,0 +1,7 @@
+font-family = Hack Nerd Font Mono
+font-size = 24
+cursor-style = block
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+background = #1b1b1b

@@ -14,4 +14,6 @@ if status is-interactive
 
     # Go binaries
     fish_add_path $HOME/go/bin
+
+    fish_vi_key_bindings
 end

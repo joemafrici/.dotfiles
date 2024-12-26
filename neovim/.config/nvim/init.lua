@@ -26,6 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
+	"xiyaowong/transparent.nvim",
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	--{
 	--	"nyoom-engineering/oxocarbon.nvim",
@@ -71,6 +72,14 @@ require("lazy").setup({
 	--		vim.cmd.colorscheme("kanagawa-dragon")
 	--	end,
 	--},
+	--{
+	--	"EdenEast/nightfox.nvim",
+	--	lazy = false,
+	--	priority = 1000,
+	--	config = function()
+	--		vim.cmd.colorscheme("nordfox")
+	--	end,
+	--}, -- lazy
 	{
 		"tjdevries/colorbuddy.nvim",
 		lazy = false,
