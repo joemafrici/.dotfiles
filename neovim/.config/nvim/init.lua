@@ -84,7 +84,7 @@ require("lazy").setup({
 		"tjdevries/colorbuddy.nvim",
 		lazy = false,
 		config = function()
-			require("colors.monochrome")
+			require("colors.wawa")
 		end,
 	},
 	"tpope/vim-rails",
@@ -99,7 +99,7 @@ require("lazy").setup({
 	--    require('Comment').setup({})
 
 	-- "gc" to comment visual regions/lines
-	--{ "numToStr/Comment.nvim", opts = {} },
+	{ "numToStr/Comment.nvim", opts = {} },
 
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`. This is equivalent to the following Lua:

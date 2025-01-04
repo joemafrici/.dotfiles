@@ -16,4 +16,6 @@ if status is-interactive
     fish_add_path $HOME/go/bin
 
     fish_vi_key_bindings
+
+    alias ls "eza"
 end
