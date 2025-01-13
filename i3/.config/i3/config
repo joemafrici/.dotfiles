@@ -14,7 +14,7 @@ set $mod Mod1
 # map capslock to escape
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id setxkbmap -option caps:escape
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wawa-violin.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/wawa-on-right.png
 
 # Brightness controls (using brightnessctl)
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
