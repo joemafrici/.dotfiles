@@ -14,7 +14,7 @@ local groups = colorbuddy.groups
 local styles = colorbuddy.styles
 
 -- colors
-Color.new("background", "#181818")
+Color.new("background", "#1b1b1b")
 Color.new("black", "#000000")
 Color.new("gray", "#808080")
 Color.new("dark_gray", "#1e1e1e")
