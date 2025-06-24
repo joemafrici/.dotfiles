@@ -26,7 +26,7 @@ function M.setup()
 	-- Set indent for html, css, js files
 	vim.api.nvim_create_autocmd("FileType", {
 		desc = "Indent 2 spaces for html, css, javascript, typescript files",
-		pattern = { "html", "css", "javascript", "typescript", "typescriptreact" },
+		pattern = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 		callback = function()
 			vim.opt_local.shiftwidth = 2
 			vim.opt_local.tabstop = 2
