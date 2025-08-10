@@ -881,19 +881,15 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'Shatur/neovim-ayu',
+    'shaunsingh/nord.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('ayu').setup {
-        mirage = true, -- Set to `true` to use `mirage` variant instead of `dark` for dark background.
-        terminal = true, -- Set to `false` to let terminal manage its own colors.
-        overrides = {}, -- A dictionary of group names, each associated with a dictionary of parameters (`bg`, `fg`, `sp` and `style`) and colors in hex.
-      }
+
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'ayu'
+      vim.cmd.colorscheme 'nord'
     end,
   },
 
