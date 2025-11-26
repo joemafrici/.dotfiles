@@ -222,6 +222,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Function to set 2-space indentation
+local set_2space = function()
+  vim.opt_local.shiftwidth = 2 -- Indentation size for > and <
+  vim.opt_local.tabstop = 2 -- Number of spaces per Tab
+  vim.opt_local.softtabstop = 2 -- Number of spaces per Tab in insert mode
+  vim.opt_local.expandtab = true -- Use spaces instead of tabs
+end
+
+-- Apply to multiple filetypes
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'html', 'css', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
+  callback = set_2space,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -884,15 +898,21 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'rebelot/kanagawa.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
+    -- 'rebelot/kanagawa.nvim',
+    -- priority = 1000, -- Make sure to load this before all the other start plugins.
+    -- config = function()
+    ---@diagnostic disable-next-line: missing-fields
 
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'kanagawa'
+    -- Load the colorscheme here.
+    -- Like many other themes, this one has different styles, and you could load
+    -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+    -- vim.cmd.colorscheme 'kanagawa'
+    -- end,
+
+    'tjdevries/colorbuddy.nvim',
+    lazy = false,
+    config = function()
+      require 'colors.monochrome'
     end,
   },
 

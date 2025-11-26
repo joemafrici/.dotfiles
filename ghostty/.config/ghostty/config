@@ -6,6 +6,6 @@ cursor-style = block
 # window-padding-x = 4
 # window-padding-y = 4
 # window-padding-balance = true
-# background = #1b1b1b
+background = #181818
 # background-opacity = 0.9
 theme = ayu

@@ -68,3 +68,4 @@ export SHELL=/opt/homebrew/bin/bash
 #alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 alias python="python3"
 #alias pip="pip3"
+. "/Users/deepwater/.deno/env"
